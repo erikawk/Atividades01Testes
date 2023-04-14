@@ -78,7 +78,7 @@ public class ContaBancariaTest {
         contaBancaria.aplicarJuros();
         assertEquals(2500, contaBancaria.getSaldo());
     }
-    
+
     @Test
     public void alterarTitularTest() {
         assertFalse(contaBancaria.alterarTitular(null));
