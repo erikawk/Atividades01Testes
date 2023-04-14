@@ -1,7 +1,8 @@
 package br.senai.sc.projectsTest;
 import br.senai.sc.projects.Musica;
 import br.senai.sc.projects.PlaylistMusica;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,14 +11,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PlaylistTest {
 
-    Musica musica = new Musica("rua", "jão", 200);
-    PlaylistMusica playlistMusica = new PlaylistMusica("rock");
+    Musica musica;
+    PlaylistMusica playlistMusica;
 
-//   @BeforeEach
-//    public void setup() {
-//        musica = new Musica("rua", "jão", 200);
-//        playlistMusica = new PlaylistMusica("rock");
-//    }
+   @BeforeEach
+    public void setup() {
+        musica = new Musica("rua", "jão", 200);
+        playlistMusica = new PlaylistMusica("rock");
+    }
 
     @Test
     public void getNome() {
