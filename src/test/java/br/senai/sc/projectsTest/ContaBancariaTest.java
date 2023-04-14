@@ -39,6 +39,24 @@ public class ContaBancariaTest {
         assertTrue(contaBancaria.depositar(1));
     }
 
+    // Sugestão do CHATGPT para o teste DEPOSITAR() -----------------
+    @Test
+    public void testDepositoDeZero() {
+        assertFalse(contaBancaria.depositar(0));
+    }
+
+    @Test
+    public void testDepositoDeValorNegativo() {
+        assertFalse(contaBancaria.depositar(-1));
+    }
+
+    @Test
+    public void testDepositoDeValorPositivo() {
+        assertTrue(contaBancaria.depositar(1));
+    }
+
+    // ------------------------------------------------------------
+
     @Test
     public void sacarTest() {
         assertFalse(contaBancaria.sacar(0));
@@ -60,7 +78,7 @@ public class ContaBancariaTest {
         contaBancaria.aplicarJuros();
         assertEquals(2500, contaBancaria.getSaldo());
     }
-
+    
     @Test
     public void alterarTitularTest() {
         assertFalse(contaBancaria.alterarTitular(null));
