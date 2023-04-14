@@ -12,12 +12,26 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PlaylistTest {
 
     Musica musica;
+    Musica musica1;
+    Musica musica2;
+    Musica musica3;
     PlaylistMusica playlistMusica;
 
    @BeforeEach
     public void setup() {
         musica = new Musica("rua", "jão", 200);
         playlistMusica = new PlaylistMusica("rock");
+
+       // Sugestões de setup do CHATGPT ---------------------------
+
+       Musica musica1 = new Musica("Titulo 1", "Artista 1", 400);
+       Musica musica2 = new Musica("Titulo 2", "Artista 2", 200);
+       Musica musica3 = new Musica("Titulo 3", "Artista 3", 100);
+       playlistMusica.adicionarMusica(musica1);
+       playlistMusica.adicionarMusica(musica2);
+       playlistMusica.adicionarMusica(musica3);
+
+       // ----------------------------------------------------------
     }
 
     @Test
@@ -90,6 +104,22 @@ public class PlaylistTest {
         playlistMusica.ordenarPorTitulo();
         assertEquals(List.of(musica1, musica2, musica3), playlistMusica.getMusicas());
     }
+
+    // Sugestão do CHATGPT para o teste ordenarPorTituloTest() ----------
+    @Test
+    public void shouldNotBeOrderedByTitleInitially() {
+        assertNotEquals(List.of(musica1, musica2, musica3), playlistMusica.getMusicas());
+    }
+
+    @Test
+    public void shouldOrderMusicByTitle() {
+        playlistMusica.ordenarPorTitulo();
+        Musica[] expected = {musica1, musica2, musica3};
+        assertArrayEquals(expected, playlistMusica.getMusicas().toArray());
+    }
+
+    // --------------------------------------------------------------------
+
 
     @Test
     public void getQuantidadeMusicasTest() {
